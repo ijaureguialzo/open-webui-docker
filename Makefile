@@ -29,5 +29,8 @@ start: _start_command _urls
 stop:
 	@docker compose stop
 
+logs:
+	@docker compose logs
+
 clean:
 	@docker compose down -t 0 -v --remove-orphans
