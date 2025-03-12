@@ -24,7 +24,12 @@ _header:
 _start_command:
 	@docker compose up -d
 
+_start_command-traefik:
+	@docker compose -f docker-compose.yml -f docker-compose.traefik.yml up -d
+
 start: _start_command _urls
+
+start-traefik: _start_command-traefik _urls
 
 stop:
 	@docker compose stop

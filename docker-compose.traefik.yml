@@ -1,0 +1,13 @@
+services:
+  open-webui:
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.open-webui.rule=Host(`${FQDN_OPEN_WEBUI:-open-webui.test}`)"
+      - "traefik.http.routers.open-webui.entrypoints=websecure"
+      - "traefik.http.routers.open-webui.tls=true"
+      - "traefik.http.services.open-webui.loadbalancer.server.port=8080"
+
+networks:
+  default:
+    name: ${NETWORK_NAME:-traefik-network}
+    external: true
